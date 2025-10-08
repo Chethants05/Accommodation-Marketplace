@@ -2,8 +2,7 @@ package com.dcl.accommodate.model;
 
 import com.dcl.accommodate.enums.UserRole;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -16,6 +15,10 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
 public class User {
@@ -33,9 +36,9 @@ public class User {
     @Column(name = "date_of_birth" ,nullable = false,updatable = false)
     private LocalDate dateOfBirth;
 
-    @Column(name = "user_role" ,nullable = false)
-    @Enumerated(EnumType.STRING )
-    private UserRole UserRole;
+    @Column(name = "user_role", nullable = false, length = 50)
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 
     @Column(name = "email", nullable = false , unique = true)
     private String email ;
@@ -46,8 +49,8 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "avatar")
-    private String avatar;
+//    @Column(name = "avatar")
+//    private String avatar;
 
     @Column(name = "created_at", nullable = false,updatable = false)
     @CreatedDate

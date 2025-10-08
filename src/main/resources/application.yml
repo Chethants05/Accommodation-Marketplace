@@ -7,9 +7,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${DATASOURCE_URL:jdbc:mysql://localhost:3306/Airbnb?createDatabaseIfNotExist=true}
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASSWORD:root}
+    url: ${DATASOURCE_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
 
   jpa:
     show-sql: true
@@ -21,8 +21,7 @@ spring:
 
 
 
-#this is another approch for fetching jwt key
+
 app:
   jwt:
     key: ${JWT_SECRET}
-#    key: u8F+q9ZyL1V7eR5KpT9Xw2sJ0vH3mN4Q8bYzC6dR7fU=

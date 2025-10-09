@@ -16,7 +16,6 @@ import java.util.UUID;
 @Setter
 @Entity
 @Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
@@ -49,8 +48,8 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-//    @Column(name = "avatar")
-//    private String avatar;
+    @Column(name = "avatar")
+    private String avatar;
 
     @Column(name = "created_at", nullable = false,updatable = false)
     @CreatedDate

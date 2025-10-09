@@ -7,17 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 
 @RestController
-
+@RequestMapping("/api/v1")
 public class UserController {
     @Autowired
     private UserService userservice;
 
-    @PostMapping("/user")
+    @PostMapping("/register")
     public ResponseEntity<ApiAck> registerUser(@RequestBody @Valid UserRegistrationRequest request){
         userservice.createUser(request);
         return ResponseEntity.created(URI.create("/api/v1/profile")).body(new ApiAck(true,"User registered sucessfully"));
